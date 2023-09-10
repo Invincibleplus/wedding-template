@@ -142,7 +142,7 @@
         },
       },
     });
-    $("#count").countdown("2023/10/20", function (event) {
+    $("#count").countdown("2023/10/20 02:00:00", function (event) {
       $(this).html(
         event.strftime(
           "" +
@@ -158,7 +158,7 @@
     // Count function
 
     const _countdown = () => {
-        const weddingDate = new Date("October 20,2023 00:00:00").getTime()
+        const weddingDate = new Date("October 20,2023 12:00:00").getTime()
         const now = new Date().getTime()
         const gap = weddingDate - now;
 
@@ -168,7 +168,11 @@
         const day = hours * 24;
 
         const final_day =Math.floor( gap/day);
-        console.log(final_day)
+        const textHour = Math.floor((gap % day)/hours);
+        const textMinute = Math.floor((gap % hours)/minutes);
+        const textSecond = Math.floor((gap % minutes)/seconds)
+        
+        document.querySelector().innerText = final_day;
     }
 
     _countdown();
